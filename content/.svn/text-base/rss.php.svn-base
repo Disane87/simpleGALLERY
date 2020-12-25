@@ -1,0 +1,27 @@
+<?php
+header("Content-Type: application/rss+xml");
+echo('<?xml version="1.0" encoding="ISO-8859-1"?>'); ?>
+<rss version="2.0">
+  <channel>
+    <title>RSS Feeds mit PHP</title>
+    <link>http://jars.de</link>
+    <description>RSS Feeds mit PHP</description>
+    <language>de-de</language>
+    <pubDate><?php echo(date("r")); ?></pubDate>
+ 
+    <item>
+        <title>Titel 1</title>
+        <link>http://jars.de/</link>
+        <description><![CDATA[Auch HTML moeglich]]></description>
+        <pubDate><?php echo(date("r")); ?></pubDate>
+    </item>
+ 
+    <item>
+        <title>Titel 2</title>
+        <link>http://jars.de/</link>
+        <description><![CDATA[Auch HTML moeglich]]></description>
+        <pubDate><?php echo(date("r")); ?></pubDate>
+    </item>
+ 
+  </channel>
+</rss>

@@ -1,0 +1,549 @@
+"General"
+{
+"ProjectIdGuid" = "{D0882EA5-687D-4BCB-83BF-E25606017032}"
+"ProjectVersion" = "2.4.5.4617"
+}
+"Configurations"
+{
+    "Local|PHP 5"
+    {
+    "IncludeDirs" = ""
+    }
+    "Local|PHP 4"
+    {
+    "IncludeDirs" = ""
+    }
+    "Remote|PHP 5"
+    {
+    "IncludeDirs" = ""
+    }
+    "Remote|PHP 4"
+    {
+    "IncludeDirs" = ""
+    }
+}
+"Files"
+{
+    "admin\\gallery_settings.php"
+    {
+    "ProjRelPath" = "T"
+    }
+    "admin\\user_registration.php"
+    {
+    "ProjRelPath" = "T"
+    }
+    "classes\\ccommon.inc.php"
+    {
+    "ProjRelPath" = "T"
+    }
+    "classes\\cdatabase.inc.php"
+    {
+    "ProjRelPath" = "T"
+    }
+    "classes\\clogin.inc.php"
+    {
+    "ProjRelPath" = "T"
+    }
+    "classes\\csecurity.inc.php"
+    {
+    "ProjRelPath" = "T"
+    }
+    "conf\\content.inc.php"
+    {
+    "ProjRelPath" = "T"
+    }
+    "conf\\includes.inc.php"
+    {
+    "ProjRelPath" = "T"
+    }
+    "conf\\index.html"
+    {
+    "ProjRelPath" = "T"
+    }
+    "content\\addfolder.php"
+    {
+    "ProjRelPath" = "T"
+    }
+    "content\\captcha.img.php"
+    {
+    "ProjRelPath" = "T"
+    }
+    "content\\gallery.php"
+    {
+    "ProjRelPath" = "T"
+    }
+    "content\\rss.php"
+    {
+    "ProjRelPath" = "T"
+    }
+    "content\\search.php"
+    {
+    "ProjRelPath" = "T"
+    }
+    "content\\upload.php"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\emoticons\\emoticon_evilgrin.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\emoticons\\emoticon_grin.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\emoticons\\emoticon_happy.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\emoticons\\emoticon_smile.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\emoticons\\emoticon_surprised.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\emoticons\\emoticon_tongue.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\emoticons\\emoticon_unhappy.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\emoticons\\emoticon_waii.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\emoticons\\emoticon_wink.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\paint.net\\collapse.pdn"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\paint.net\\expand.pdn"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\arrow_right.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\cake.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\close.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\collapse.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\comment.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\expand.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\file.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\folder.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\folder_add.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\folder_delete.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\folder_feed.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\folder_files.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\folder_image.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\login.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\logout.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\medal_bronze_2.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\medal_gold_2.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\medal_silver_2.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\medal_silver_add.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\new.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\option.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\picture_add.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\picture_delete.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\picture_go.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\rss_add.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\rss_feed.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\view_list.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\icons\\view_tile.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\loadinganimation.gif"
+    {
+    "ProjRelPath" = "T"
+    }
+    "images\\watermark.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\jquery-ui-i18n.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-ar.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-bg.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-ca.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-cs.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-da.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-de.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-el.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-eo.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-es.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-fa.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-fi.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-fr.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-he.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-hr.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-hu.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-hy.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-id.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-is.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-it.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-ja.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-ko.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-lt.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-lv.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-ms.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-nl.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-no.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-pl.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-pt-br.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-ro.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-ru.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-sk.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-sl.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-sq.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-sr-sr.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-sr.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-sv.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-th.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-tr.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-uk.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-zh-cn.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\i18n\\ui.datepicker-zh-tw.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\jquery-ui-1.7.1.custom.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\ui.core.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\ui.datepicker.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\ui.progressbar.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\ui\\ui.tabs.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\common.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\jquery-1.3.2.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\jquery.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "javascript\\thickbox.js"
+    {
+    "ProjRelPath" = "T"
+    }
+    "styles\\smoothness\\images\\ui-bg_flat_0_aaaaaa_40x100.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "styles\\smoothness\\images\\ui-bg_flat_75_ffffff_40x100.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "styles\\smoothness\\images\\ui-bg_glass_55_fbf9ee_1x400.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "styles\\smoothness\\images\\ui-bg_glass_65_ffffff_1x400.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "styles\\smoothness\\images\\ui-bg_glass_75_dadada_1x400.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "styles\\smoothness\\images\\ui-bg_glass_75_e6e6e6_1x400.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "styles\\smoothness\\images\\ui-bg_glass_95_fef1ec_1x400.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "styles\\smoothness\\images\\ui-bg_highlight-soft_75_cccccc_1x100.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "styles\\smoothness\\images\\ui-icons_222222_256x240.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "styles\\smoothness\\images\\ui-icons_2e83ff_256x240.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "styles\\smoothness\\images\\ui-icons_454545_256x240.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "styles\\smoothness\\images\\ui-icons_888888_256x240.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "styles\\smoothness\\images\\ui-icons_cd0a0a_256x240.png"
+    {
+    "ProjRelPath" = "T"
+    }
+    "styles\\smoothness\\jquery-ui-1.7.1.custom.css"
+    {
+    "ProjRelPath" = "T"
+    }
+    "styles\\default.css"
+    {
+    "ProjRelPath" = "T"
+    }
+    "styles\\thickbox.css"
+    {
+    "ProjRelPath" = "T"
+    }
+    "test\\index.php"
+    {
+    "ProjRelPath" = "T"
+    }
+    ".htaccess"
+    {
+    "ProjRelPath" = "T"
+    }
+    ".vsphpignore"
+    {
+    "ProjRelPath" = "T"
+    }
+    "index.php"
+    {
+    "ProjRelPath" = "T"
+    }
+    "info.php"
+    {
+    "ProjRelPath" = "T"
+    }
+}
+"ProjStartupServices"
+{
+}
+"Globals"
+{
+}
+"References"
+{
+"PhpReference" = "image"
+}

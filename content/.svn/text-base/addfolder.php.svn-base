@@ -1,0 +1,41 @@
+<div align="left"><b>Bild-Upload:</b></div>
+<div align="center">
+	<form action="#" method="POST" enctype="multipart/form-data">
+		<table width="50%" border="0" ID="FileTable">
+			<tr>
+				<td>Titel des Albums:</td>
+				<td><input type="text" name="Titel"></td>
+			</tr>	
+			<tr>
+				<td>Admin-PIN:</td>
+				<td><input type="text" name="PIN"></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="submit" name="Submit" value="Speichern">
+					<input type="reset" value="Zurücksetzen">
+				</td>
+			</tr>				
+		</table>
+	</form>
+</div>
+
+<?php
+if(isset($_POST['Submit']) AND $_POST['Titel']!='' AND $_POST['PIN']==ADMIN_PIN AND $i != 1)
+{
+	// TO-DO: Alben werden immer 2x eingetragen!
+	$i += 1;
+	$database->insertupdateData("INSERT INTO ordner 
+				(ID, Name, Pfad, Aufnahme_Datum)
+				VALUES 
+				(NULL , '".$_POST['Titel']."', '".PICTURE_PATH."', CURDATE());");
+}
+?>
+<div id='pageing'>
+	<a href='index.php'>Zurück zur Übersicht</a>
+</div>

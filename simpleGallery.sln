@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{1863889A-00DF-4350-BA39-669CA949CB81}") = "simpleGallery", "simpleGallery.phpproj", "{D0882EA5-687D-4BCB-83BF-E25606017032}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Local|PHP 4 = Local|PHP 4
+		Local|PHP 5 = Local|PHP 5
+		Remote|PHP 4 = Remote|PHP 4
+		Remote|PHP 5 = Remote|PHP 5
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0882EA5-687D-4BCB-83BF-E25606017032}.Local|PHP 4.ActiveCfg = Local|PHP 5
+		{D0882EA5-687D-4BCB-83BF-E25606017032}.Local|PHP 4.Deploy.0 = Local|PHP 5
+		{D0882EA5-687D-4BCB-83BF-E25606017032}.Local|PHP 5.ActiveCfg = Local|PHP 5
+		{D0882EA5-687D-4BCB-83BF-E25606017032}.Local|PHP 5.Deploy.0 = Local|PHP 5
+		{D0882EA5-687D-4BCB-83BF-E25606017032}.Remote|PHP 4.ActiveCfg = Remote|PHP 4
+		{D0882EA5-687D-4BCB-83BF-E25606017032}.Remote|PHP 4.Deploy.0 = Remote|PHP 4
+		{D0882EA5-687D-4BCB-83BF-E25606017032}.Remote|PHP 5.ActiveCfg = Remote|PHP 5
+		{D0882EA5-687D-4BCB-83BF-E25606017032}.Remote|PHP 5.Deploy.0 = Remote|PHP 5
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

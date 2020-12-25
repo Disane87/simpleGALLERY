@@ -1,0 +1,25 @@
+RewriteEngine on 
+RewriteRule ^pics([0-9]+)p([0-9]+).html$ index.php?section=pics&id=$1&page=$2
+RewriteRule ^pics([0-9]+)p([0-9]+)subfolder.html$ index.php?section=pics&id=$1&page=$2&mode=subfolder
+RewriteRule ^image(.*).html$ index.php?section=image&hash=$1
+RewriteRule ^upload([0-9]+).html$ index.php?section=upload&id=$1
+RewriteRule ^upload([0-9]+)subfolder.html$ index.php?section=upload&id=$1&mode=subfolder
+RewriteRule ^upload([0-9]+)done.html$ index.php?section=upload&id=$1&action=done
+RewriteRule ^upload([0-9]+)subfolderdone.html$ index.php?section=upload&id=$1&action=done&mode=subfolder
+RewriteRule ^rss([0-9]+).html$ content/rss.php?id=$1
+RewriteRule ^rss([0-9]+)subfolder.html$ content/rss.php?id=$1&mode=subfolder
+RewriteRule ^addfolder.html$ index.php?section=addfolder
+RewriteRule ^folderdelete([0-9]+)subfolder.html$ index.php?action=folderdelete&id=$1&mode=subfolder
+RewriteRule ^folderdelete([0-9]+).html$ index.php?action=folderdelete&id=$1
+RewriteRule ^picdelete([0-9]+)folder([0-9]+)p([0-9]+)_(.*).html$ index.php?section=pics&id=$2&action=picdelete&picid=$1&page=$3&picname=$4
+RewriteRule ^tile_overview.html$ index.php?overview=tile
+RewriteRule ^list_overview.html$ index.php?overview=list
+RewriteRule ^expand([0-9]+).html$ ?action=expand&AlbumID=$1
+RewriteRule ^collapse([0-9]+).html$ ?action=collapse&AlbumID=$1
+RewriteRule ^userlogin.html$ ?action=login
+RewriteRule ^userlogout.html$ ?action=logout
+RewriteRule ^admin_panel.html$ ?section=acp
+RewriteRule ^save_settings.html$ ?section=acp&action=savesettings
+RewriteRule ^user_registration.html$ ?section=user_reg
+RewriteRule ^user_registration_done.html$ ?section=user_reg&done=true
+

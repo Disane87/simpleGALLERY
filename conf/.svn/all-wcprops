@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/simpleGALLERY/!svn/ver/30/conf
+END
+includes.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/simpleGALLERY/!svn/ver/37/conf/includes.inc.php
+END
+sqlstrings.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/simpleGALLERY/!svn/ver/37/conf/sqlstrings.inc.php
+END
+content.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/simpleGALLERY/!svn/ver/30/conf/content.inc.php
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/simpleGALLERY/!svn/ver/18/conf/index.html
+END
+settings.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/simpleGALLERY/!svn/ver/37/conf/settings.inc.php
+END

@@ -1,0 +1,185 @@
+<div align="left"><b>Bild-Upload:</b></div>
+<div align="center">
+	<form action="upload<?php echo $_GET['id']; ?>done.html" method="POST" enctype="multipart/form-data">
+		<table width="50%" border="0" ID="FileTable">
+			<tr>
+				<td>Admin-PIN:</td>
+				<td><input type="text" name="PIN"></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="submit" name="Submit" value="Hochladen">
+					<input type="reset" value="Zurücksetzen">
+					<input type="button" name="Mehr Files" value="Mehr Files" onClick="start(); return false;">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<td>Titel des Bildes:</td>
+				<td><input type="text" name="Titel"></td>
+			</tr>
+			<tr>
+				<td>Bild:</td>
+				<td><input type="file" name="Bild[]" accept="image/*" size="60"></td>
+			</tr>			
+		</table>
+	</form>
+</div>
+
+<?php
+
+if(isset($_GET['id']) AND $_GET['action']=='done'){
+	if($_POST['PIN'] == ADMIN_PIN)
+	{
+		for ($i = 0; $i < count($_FILES['Bild']['tmp_name']); $i++) {
+			
+			$AlbumID	= $_GET['id'];
+			$name 		= $_FILES['Bild']['name'][$i];
+			$type 		= $_FILES['Bild']['type'][$i];
+			$tmp_name	= $_FILES['Bild']['tmp_name'][$i];
+			$size 		= ($_FILES['Bild']['size'][$i])/1024;
+			$hash 		= md5($name.$type.$size.$tmp_name.time());  
+			$pfad		= PICTURE_PATH;
+			
+			if($_FILES['Bild']['name'][$i]!='' OR $_POST['Titel']!=''){		
+				
+				if($type != "image/gif" && $type != "image/jpeg" && $type !="image/png" && $type !="image/pjpeg") { 
+					$err[] = 	"<div id='error' align='center'>
+							Nur gif, png und jpeg Dateien duerfen hochgeladen werden.
+							</div>"; 
+					echo "<td>".$err[0]."</td>";
+				} 
+				if($size > MAX_FILESIZE) { 
+					$err[] = 	"<div id='error' align='center'>
+							Die Datei welche du hochladen willst, ist zu gross!<br>
+							Maximale Dateigrosse betraegt 500 KB!
+							</div>"; 
+					echo "<td>".$err[0]."</td>";
+				} 
+				if(empty($err)) {
+					$bar->setMessage('Upload in progress ...');
+					$bar->setAutohide(true);
+					$bar->setSleepOnFinish(1);
+					//$bar->setForegroundColor('#ff0000');
+					
+					$elements = count($_FILES['Bild']['tmp_name']); //total number of elements to process
+					$bar->initialize($elements); //print the empty bar
+					
+					
+					for($i=0;$i<$elements;$i++){
+						
+						sleep(1); // simulate a time consuming process
+						
+						$bar->increase(); //calls the bar with every processed element
+						
+						if($i==1){
+							$bar->setMessage('Uploading your images ...');
+							//$bar->setForegroundColor('#3F41FF');
+						}
+					}
+					if(move_uploaded_file($tmp_name, PICTURE_PATH.$name ))
+					{
+						$dest = $pfad.$hash;
+						
+						switch($type)
+						{
+							case "image/gif":
+								$dateiendung = ".gif";
+								if (file_exists(PICTURE_PATH.$hash.".gif")){
+									unlink($pfad.$name.".gif");
+								}
+								$bname=$name;
+								rename(PICTURE_PATH.$name, $dest.$dateiendung );
+								break;
+							case "image/jpeg":
+								$dateiendung = ".jpg";
+								if (file_exists(PICTURE_PATH.$hash.".jpg")){
+									unlink(PICTURE_PATH.$hash.".jpg");
+								}
+								$bname=$name;
+								rename(PICTURE_PATH.$name, $dest.$dateiendung );
+								break;
+							
+							case "image/png":
+								$dateiendung = ".png";
+								if (file_exists(PICTURE_PATH.$hash.".png")){
+									unlink(PICTURE_PATH.$hash.".png");
+								}
+								$bname=$name;
+								rename(PICTURE_PATH.$name, $dest.$dateiendung );
+								break;
+							
+							case "image/pjpeg":	
+								$dateiendung = ".jpg";
+								if (file_exists(PICTURE_PATH.$hash.".jpg")){
+									unlink(PICTURE_PATH.$hash.".jpg");
+								}
+								$bname=$name;
+								rename(PICTURE_PATH.$name, $dest.$dateiendung );
+								break;
+						}
+						
+						$common->createThumb($dest.$dateiendung, $hash.$dateiendung);
+						$PicHoehe	= $common->getPicWidth();
+						$PicBreite	= $common->getPicHeight();
+						$database->insertupdateData("INSERT INTO bilder (
+									ID ,
+									Name ,
+									Titel ,
+									Dateityp ,
+									Größe ,
+									Höhe ,
+									Breite ,
+									Pfad ,
+									Hash ,
+									Bewertung ,
+									Bewertung_Anz ,
+									Bild_Datum ,
+									Autor_ID ,
+									Ordner_ID ,
+									Thumbnail_Pfad
+									)
+									VALUES (
+									NULL, 
+									'".$name."', 
+									'".$_POST['Titel']."', 
+									'".$dateiendung."', 
+									'".ceil($size)."', 
+									'".$PicHoehe."', 
+									'".$PicBreite."', 
+									'".$dest.$dateiendung."', 
+									'".$hash."', 
+									'0', 
+									'0', 
+									NOW(), 
+									NULL,
+									".$AlbumID.", 
+									'".THUMBNAIL_PATH.$hash.$dateiendung."'); "); 
+					}
+					else{
+						echo "<div id='error'><b>Fehler: </b><br>Datei konnte nicht hochgeladen werden! Bitte versuche es noch einmal.</div>";	
+					}
+				}
+			}
+			else{
+				$err[] = 	"<div id='error' align='center'>
+						Bitte fülle alle Felder aus!
+						</div>"; 
+				echo "<td>".$err[0]."</td>";	
+			}
+		}
+	}
+	else
+	{
+		$err[] = 	"<div id='error' align='center'>
+				Bitte bestätige die Änderung mit deinem PIN!
+				</div>"; 
+		echo "<td>".$err[0]."</td>";
+	}
+}
+?>
+<div id='pageing'><a href='index.php'>Zurück zur Übersicht</a></div>

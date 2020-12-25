@@ -1,0 +1,242 @@
+<html>
+	<head>
+		<META NAME="GENERATOR" Content="Microsoft Visual Studio .NET 7.1">
+		<TITLE> &raquo; Changelog von simpleGallery</TITLE>
+		<style type="text/css">
+           body {
+	            background-color: #0080c0;
+	            font-family:verdana;
+	            font-size:10px;
+	            color:white;
+
+	            background-color:black;
+	            padding: 0;
+            	font-size:large;
+	            scrollbar-face-color: #000000;
+	            scrollbar-highlight-color: #000000;
+	            scrollbar-3dlight-color: #000000;
+	            scrollbar-darkshadow-color: #000000;
+	            scrollbar-shadow-color: #72C723;
+	            scrollbar-arrow-color: #72C723;
+	            scrollbar-track-color: #000000;
+            }
+            #header
+            {
+	            position:absolute;
+	            border-bottom:1px #72C723 solid;
+	            border-left:1px #72C723 solid;
+	            color:white;
+	            font-weight:bold;
+
+	            margin-left:5px;
+	            padding-left:5px;
+	            text-align:left;
+	            left:5px;
+	            right:5px;
+	            width:auto;
+	            top:5px;
+            }
+            #footer
+            {
+	            border-top:1px #72C723 solid;
+	            color:white;
+	            text-align:left;
+	            position:absolute;
+	            bottom:0px;
+	            width:auto;
+	            margin-bottom:5px;
+	            margin-left:5px;
+	            padding-left:5px;
+	            left:5px;
+	            right:5px;
+	            font-size:11px;
+            }
+            #content {
+	            width: auto;
+	            background-color:black;
+	            vertical-align:top;
+	            /*border:1px dashed #72C723;*/
+	            left:15px;
+	            right:15px;
+	            position:absolute;
+	            bottom:25px;
+	            top:40px;
+	            height:auto;
+	            padding:15px;	
+	            overflow-x:auto;
+	            text-align:center;
+            }
+            #content A:link, #content A:visited, #footer A:link, #footer A:visited { 
+	            color: white; 
+	            background-color:transparent; 
+	            text-decoration:none;
+            }
+            #content A:hover, #footer A:hover  {  
+	            color: #72C723; 
+	            text-decoration:none;
+	            background-color:transparent;
+            }
+            #content td  {  
+	            font-size:11px;
+            }
+        </style>
+	</head>
+	<body>
+	<div id="header"> &raquo; Changelog &raquo; simpleGallery</div>
+	    <div id="content">
+		    <table align="left" width="100%" border="0" bgcolor="#000000" >
+		    <tr>
+		        <th valign="top" align="left" width="75px">&nbsp;</td>
+	            <th valign="top" align="left" width="100px">Datum</td>
+	            <th valign="top" align="left" width="150px">Änderung</td>
+	            <th valign="top" align="left" width="150px">Mantis-Link</td>
+	            <th valign="top" align="left" width="150px">Status</td>
+	            <th valign="top" align="left">Beschreibung</td>
+	            
+	        </tr>
+	        
+	        <tr>
+	            <td colspan="6">&nbsp;</td>
+	        </tr>	
+			
+			<!-- Version 0.6.0b -->			
+			<tr>
+	            <td valign="top" align="left"><b>V0.6.0b:</b></td>
+	            <td valign="top" align="left" colspan="5"></td>
+	        </tr>
+			
+			<tr>
+	            <td valign="top" align="left">&nbsp;</td>
+	            <td valign="top" align="left">14.03.2009</td>
+	            <td valign="top" align="left">Ordnerstruktur</td>
+	            <td valign="top" align="left"><a href="http://real-insanity.com/mantis/view.php?id=10">0000010</a></td>
+	            <td valign="top" align="left">Feature-Wunsch</td>
+	            <td valign="top" align="left">
+	                Nun kann man auch mehrere Unter-Alben für ein Album definieren, die sich dann wie normale Alben verhalten.
+	            </td>
+	        </tr>
+			
+			<tr>
+	            <td valign="top" align="left">&nbsp;</td>
+	            <td valign="top" align="left">11.03.2009</td>
+	            <td valign="top" align="left">ThickBox Gallery Function</td>
+	            <td valign="top" align="left"><a href="http://real-insanity.com/mantis/view.php?id=11">0000011</a></td>
+	            <td valign="top" align="left">Feature-Wunsch</td>
+	            <td valign="top" align="left">
+	                Es konnte bislang nicht der Gallery-Mode benutzt werden. Dies war ein Bug seitens des Herstellers und wurde behoben.
+	            </td>
+	        </tr>
+	        
+	        <tr>
+	            <td valign="top" align="left">&nbsp;</td>
+	            <td valign="top" align="left">04.03.2009</td>
+	            <td valign="top" align="left">Upload-Timeout</td>
+	            <td valign="top" align="left"><a href="http://real-insanity.com/mantis/view.php?id=13">0000013</a></td>
+	            <td valign="top" align="left">Absturz</td>
+	            <td valign="top" align="left">
+	                Es kam immer wieder dazu, wenn mehrere (große) Bilder hochgeladen wurden, dass der Server in ein Timeout lief. Dies wurde behoben und das Timeout-Limit wurde heraufgesetzt.
+	            </td>
+	        </tr>
+			
+			<tr>
+	            <td valign="top" align="left">&nbsp;</td>
+	            <td valign="top" align="left">09.03.2009</td>
+	            <td valign="top" align="left">Bild- und Ordner löschen</td>
+	            <td valign="top" align="left"><a href="http://real-insanity.com/mantis/view.php?id=15">0000015</a> &<br><a href="http://real-insanity.com/mantis/view.php?id=16">0000016</a></td>
+	            <td valign="top" align="left">schwerer Fehler</td>
+	            <td valign="top" align="left">
+	                Beim Löschen von Bildern, wurden diese nur aus der Datenbank gelöscht und nicht physikalisch von der Festplatte. Gleich betrifft auch das Löschen von Ordnern.
+	            </td>
+	        </tr>
+			
+			<tr>
+	            <td valign="top" align="left">&nbsp;</td>
+	            <td valign="top" align="left">04.03.2009</td>
+	            <td valign="top" align="left">Thumbnail enthält Wasserzeichen</td>
+	            <td valign="top" align="left"><a href="http://real-insanity.com/mantis/view.php?id=17">0000017</a></td>
+	            <td valign="top" align="left">kleinerer Fehler</td>
+	            <td valign="top" align="left">
+	                Beim Löschen von Bildern, wurden diese nur aus der Datenbank gelöscht und nicht physikalisch von der Festplatte. Gleich betrifft auch das Löschen von Ordnern.
+	            </td>
+	        </tr>
+			
+			<tr>
+	            <td valign="top" align="left">&nbsp;</td>
+	            <td valign="top" align="left">05.03.2009</td>
+	            <td valign="top" align="left">Memoryleak</td>
+	            <td valign="top" align="left"><a href="http://real-insanity.com/mantis/view.php?id=20">0000020</a></td>
+	            <td valign="top" align="left">Absturz</td>
+	            <td valign="top" align="left">
+	                Beim Upload kam es gelegentlich zu einem Memoryleak wenn größere Bilder hochgeladen wurden. Dies kam daher, dass die Bilder dyn. verkleinert und bearbeitet werden (Thumbnail & Wasserzeichen). 
+					Jedoch wurde der Speicher für diese Bilder nicht mehr freigegeben und fraß den kompletten, zugewiesenen Speichern.
+	            </td>
+	        </tr>
+	        
+	        
+			<!-- Version 0.5.5b -->
+	        <tr>
+	            <td valign="top" align="left"><b>V0.5.5b:</b></td>
+	            <td valign="top" align="left" colspan="5"></td>
+	        </tr>
+	        
+	        <tr>
+	            <td valign="top" align="left">&nbsp;</td>
+	            <td valign="top" align="left">04.03.2009</td>
+	            <td valign="top" align="left">Titel für Bild</td>
+	            <td valign="top" align="left"><a href="http://real-insanity.com/mantis/view.php?id=6">0000006</a></td>
+	            <td valign="top" align="left">Feature-Wunsch</td>
+	            <td valign="top" align="left">
+	                In der Version 0.5.0b musste man bislang noch immer einen Titel-Namen für ein Bild eingeben. Dies kann nun umgangen werden, in dem man die Checkbox ("Titel=Bildname") beim Upload anklickt.
+	                Dies bewirkt, dass der Name des Bildes (wie es hochgeladen wurde), auch als Bildtitel verwendet wird. Diese Einstellung bewirkt dieses Verhalten global für alle Bilder die daraufhin hochgeladen werden.
+	            </td>
+	        </tr>
+	        <tr>
+	            <td colspan="6">&nbsp;</td>
+	        </tr>	        
+	        <tr>
+	            <td valign="top" align="left">&nbsp;</td>
+	            <td valign="top" align="left">04.03.2009</td>
+	            <td valign="top" align="left">Löschfunktion (Bilder)</td>
+	            <td valign="top" align="left"><a href="http://real-insanity.com/mantis/view.php?id=9">0000009</a></td>
+	            <td valign="top" align="left">Bug</td>
+	            <td valign="top" align="left">
+	                Nun wird der Löschbutton für die einzelnen Bilder auch angezeigt, wenn die Einstellung <i>"EXTEND_PIC_DETAILS"</i> nicht eingeschaltet ist.
+	            </td>
+	        </tr>
+	        <tr>
+	            <td colspan="6">&nbsp;</td>
+	        </tr>
+	        <tr>
+	            <td valign="top" align="left">&nbsp;</td>
+	            <td valign="top" align="left">04.03.2009</td>
+	            <td valign="top" align="left">Timeout bei Upload</td>
+	            <td valign="top" align="left"><a href="http://real-insanity.com/mantis/view.php?id=13">0000013</a></td>
+	            <td valign="top" align="left">Kritischer Fehler</td>
+	            <td valign="top" align="left">
+	                Immer wieder kam es dazu, dass man mehrere Bilder hochladen wollte, die auch etwas größer waren.
+	                Dabei lief der server unvermeidlich in ein Timeout. Dieser Fehler ist nun behoben und man kann
+	                ganz locker große und viele Bilder uploaden.
+	            </td>
+	        </tr>
+	        <tr>
+	            <td colspan="6">&nbsp;</td>
+	        </tr>
+	        <tr>
+	            <td valign="top" align="left">&nbsp;</td>
+	            <td valign="top" align="left">Zelle</td>
+	            <td valign="top" align="left">Watermark</td>
+	            <td valign="top" align="left"><a href="http://real-insanity.com/mantis/view.php?id=7">0000007</a></td>
+	            <td valign="top" align="left">Feature-Wunsch</td>
+	            <td valign="top" align="left">
+	                Das System erstellt nun automatisch ein Watermark in dem Bilder, welches hochgeladen wurde (nicht im Thumbnail!).
+	                Dazu muss die Einstellung <i>"USE_WATERMARK"</i> und der Pfad (<i>"WATERMARK_PATH"</i>) für das Wasserzeichen hinterlegt werden.
+	                Dieses wird dann "on-the-fly" beim Upload in das hochgeladenen Bild eingebunden.
+	            </td>
+	        </tr>
+	    </table>
+		</div>
+		<div id="footer">
+			Bugtracker: <a href="http://real-insanity.com/mantis/">http://real-insanity.com/mantis/</a>
+		</div>
+	</body>
+</html>

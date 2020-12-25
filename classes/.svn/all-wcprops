@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/simpleGALLERY/!svn/ver/30/classes
+END
+cDatabase.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/simpleGALLERY/!svn/ver/37/classes/cDatabase.inc.php
+END
+cSecurity.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/simpleGALLERY/!svn/ver/37/classes/cSecurity.inc.php
+END
+cLogin.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/simpleGALLERY/!svn/ver/37/classes/cLogin.inc.php
+END
+cCommon.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/simpleGALLERY/!svn/ver/37/classes/cCommon.inc.php
+END

@@ -1,0 +1,271 @@
+<?php
+// Gesamtanzahl der anzuzeigenden Bilder errechnen
+$PicsPerPage = COLS_PER_PAGE * ROWS_PER_PAGE;
+
+
+/**
+ * Übersicht aller Alben
+ **/
+if($_GET['action'] == 'delete' and isset($_GET['id'])){
+	$database->insertupdateData("DELETE FROM ordner WHERE ordner.id = ".$_GET['id'].";");
+	$database->receiveData("DELETE FROM bilder WHERE ordner_id = ".$_GET['id'].";");	
+}
+
+if(!$_GET['ordnerid'] AND $_GET['section']!='pics' AND $_GET['section']!='rss'){
+	
+	$resultset = $database->receiveData(SQL_GETALL_FOLDER_WITH_PICCOUNT);
+	
+	// wenn ja gucke nach, ob wir Ergebnisse in der Datenbank haben
+	if(mysql_num_rows($resultset)) {
+		echo "<table width='100%' border='0'>";
+		echo "<tr><td colspan='7' align='left'><b>Übersicht aller Foto-Alben</b>:</td></tr>";
+		echo "<tr><td colspan='7'>&nbsp;</td></tr>";
+		/*echo "<tr>";
+			echo "<td>&nbsp;</td>";
+			echo "<td align='left'>Name</td>";
+			echo "<td align='left'>Perma-Link</td>";
+			echo "<td align='left'>Datum</td>";
+			echo "<td>&nbsp;</td>";
+			echo "<td>&nbsp;</td>";
+		echo "</tr>";*/
+		
+		// Gehe die einzelnen Datensätze durch
+		while ($row = mysql_fetch_object($resultset)) {
+			$piccount = $row->Anz_Bilder;
+			echo "<tr onmouseover=\"this.className='GalleryHover'\" onmouseout=\"this.className=''\">";
+			if(ALLOW_RSSFEEDS == true){
+				echo "	<td align='center' width='36'>
+							<a href='#' onClick=\"window.open('content/rss.php?id=".$_GET['id']."');\">
+								<img src='images/icons/rss_add.png' title='RSS-Feed des Ordners " . $row->Name . " abonieren'>
+							</a>
+						</td>";
+			}
+			else{
+				echo "	<td align='center' width='36'>
+							<img src='images/icons/folder.png'>
+						</td>";
+			}
+			echo '<td width="20%" align="left">' . $row->Name . '</td>';
+			echo '<td align="left">&nbsp;</td>';
+			echo '<td align="left">'.$row->Datum.'</td>';
+			if($piccount==0){ 
+				echo '<td align="left" width="30%"><b>0</b> Foto(s) / 0</b> Seiten</td>'; 
+			}
+			elseif(round($piccount/$PicsPerPage,0)  == 0) { 
+				echo '<td align="left" width="30%"><b>'. $piccount .'</b> Foto(s) / 1</b> Seite</td>'; }
+			else { 
+				echo '<td align="left" width="30%"><b>'. $piccount .'</b> Fotos /<b>'. ceil($piccount/$PicsPerPage) . '</b> Seiten</td>'; 
+			}
+			if($piccount>0){
+				echo '<td align="center" width="36"><a href="pics' . $row->ID . 'p'.DEFAULT_PAGE.'.html"><img src="images/icons/folder_image.png" title="Ordner öffnen"></a></td>';
+			}
+			else{
+				echo '<td align="center" width="36"><a href="upload' . $row->ID.'.html"><img src="images/icons/picture_add.png" title="Bilder hochladen"></a></td>';
+			}		
+			echo '	<td align="center" width="36"><a href="delete' . $row->ID.'.html">
+						<img src="images/icons/folder_delete.png" title="Album löschen" onclick="return confirmDelete(\'' . $row->Name . '\', \''.$row->Datum.'\', \''.ADMIN_PIN.'\')">
+					</td>';	
+			echo '</tr>';
+		}
+		
+	}
+	else
+	{
+		echo "<tr><td colspan='7'>Es wurden bisher keine Ordner angelegt!";
+	}
+	echo "	<tr><td colspan='7'>&nbsp;</tr></td>
+			<tr>
+				<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+				<td colspan='3' align='right' style='padding-right:10px;'>
+					<a href='addfolder.html'>
+						Album hinzufügen <img src='images/icons/folder_add.png'>
+					</a>
+				</td>
+			</tr>";	
+	echo "</table>";	
+}
+
+/**
+ * Übersicht der einzelnen Bilder eines Albums
+ **/
+
+elseif($_GET['section']=='pics'){
+	$Albumname  = mysql_fetch_object($database->receiveData("SELECT Name FROM ordner WHERE ID = ".$_GET['id'].""));
+	
+	echo "	<div align='left'>
+				<b>
+					Inhalt des Ordners '".$Albumname->Name."':
+				</b>
+			</div><br>";
+	echo "	<td align='center' width='36'><a href='upload" . $_GET['id'].".html'><img src='images/icons/picture_add.png' title='Bilder hochladen'></a>";
+	if(ALLOW_RSSFEEDS==true){
+		echo "
+				<a href='#' onClick=\"window.open('content/rss.php?id=".$_GET['id']."');\">
+					<img src='images/icons/rss_add.png' title='RSS-Feed des Ordners " . $Albumname->Name . " abonieren'>
+				</a>";
+	}
+	
+	// Zeige '$PicsPerPage' Bilder pro Seite an. Davon "$spalten" Spalten und "$zeilen" Zeilen
+	$PicsPerPage = COLS_PER_PAGE * ROWS_PER_PAGE;
+	$spalten	 = COLS_PER_PAGE;
+	$zeilen		 = ROWS_PER_PAGE;
+	
+	// Als Startseite soll die 'DEFAULT_PAGE' angezeigt werden
+	$pageNum = DEFAULT_PAGE;
+	
+	// Prüfe ob eine Seite im Query-String gesetzt wurde
+	if(isset($_GET['page']))
+	{
+		$pageNum = $_GET['page'];
+	}
+	
+	// Errechne das Offset
+	$offset = ($pageNum - 1) * $PicsPerPage;
+
+	$row     = mysql_fetch_object($database->receiveData("SELECT COUNT(id) as numrows FROM bilder WHERE Ordner_ID = ".$_GET['id'].""));
+	$numrows = $row->numrows;
+	
+	/* Wieviele Seiten hätten wir, wenn wir das Paging benutzen? */
+	$maxPage = ceil($numrows/$PicsPerPage);
+	
+	/* Setze ein SQL-Statement gegen das Database-Objekt ab... */
+	if(ALLOW_COMMENTS == false AND EXTEND_PIC_DETAILS==true){
+		$resultset = $database->receiveData("
+					SELECT  *, 
+						date_format(Bild_Datum, '".SQL_DATELAYOUT."') as Datum 
+					FROM bilder 
+					WHERE Ordner_ID = ".$_GET['id']." 
+					ORDER BY bilder.ID ASC 
+					LIMIT ".$offset.", ".$PicsPerPage.";");
+	}
+	else{
+		$resultset = $database->receiveData("
+					SELECT  *, 
+						bilder.ID as BildID,
+						bilder.Titel as Titel,
+						date_format(Bild_Datum, '".SQL_DATELAYOUT."') as Datum, 
+						count(kommentare.Bild_ID ) AS Anzahl_Kommentare
+					FROM bilder LEFT OUTER JOIN kommentare ON bilder.ID = kommentare.Bild_ID 
+					WHERE Ordner_ID = ".$_GET['id']."
+					 
+					GROUP BY bilder.ID
+					ORDER BY bilder.ID ASC
+					LIMIT ".$offset.", ".$PicsPerPage.";");
+	}
+		
+	/* wenn ja gucke nach, ob wir Ergebnisse in der Datenbank haben */
+	if(mysql_num_rows($resultset)) {
+		echo "<div align='center'>";
+		echo "<table cellspacing='10' cellpadding='5'>";
+		// Gehe die einzelnen Datensätze durch
+		echo "<tr>";
+		
+		/* Zählervariable auf 0 setzen */
+		$i = 0;
+		
+		while ($row = mysql_fetch_object($resultset)) {
+			if(EXTEND_PIC_DETAILS == true){
+				if(ALLOW_RATING == true){
+					if($row->Bewertung = 0){
+						$bewertung = "<img src='images/icons/medal_silver_add.png ' alt='Bewertung hinzufügen' title='Bewertung hinzufügen'>";
+					}
+					elseif($row->Bewertung < 3){
+						$bewertung = "<img src='images/icons/medal_bronze_2.png' alt='Bronze (".$row->Bewertung.")' title='Bronze (".$row->Bewertung.")'>";
+					}
+					elseif($row->Bewertung < 6){
+						$bewertung = "<img src='images/icons/medal_silver_2.png' alt='Silber (".$row->Bewertung.")' title='Silber (".$row->Bewertung.")'>";
+					}
+					elseif($row->Bewertung <= 10){
+						$bewertung = "<img src='images/icons/medal_gold_2.png' alt='Gold (".$row->Bewertung.")' title='Gold (".$row->Bewertung.")'>";
+					}
+					$bewertung_Ausgabe = $bewertung." (".$row->Bewertung_Anz.")"; 
+				}
+				else{
+					$bewertung_Ausgabe = "&nbsp;";
+				}
+			}
+						
+			/* Zähler +1, da wir einen Datensatz ausgegeben haben */
+			$i += 1; 
+			$aktuelleReihe = ceil($i/$spalten);
+			if($i<=$PicsPerPage){
+				echo "	<td id='Picture'>
+							<a href='".PICTURE_PATH.$row->Hash.$row->Dateityp."' title='".$row->Titel."' class='thickbox' >
+								<img src='".THUMBNAIL_PATH.$row->Hash.$row->Dateityp."' border='0' alt='".$row->Name."' />
+							</a>
+							<table width='100%'>
+								<tr>
+									<td align='left'>".$row->Titel."</td>
+									<td align='right'>".$bewertung_Ausgabe."</td>
+								</tr>";
+				if(EXTEND_PIC_DETAILS == true){
+					echo	"		<tr>
+										<td align='left'>".$row->Größe." kB</td>";
+				
+					if(ALLOW_COMMENTS == true){
+						echo	"		<td align='right'>
+											<a href='comments".$row->BildID.".html'>
+												<img src='images/icons/comment.png'> (".$row->Anzahl_Kommentare.")
+											</a>
+										</td>
+									</tr>";
+						
+					}
+					else{
+						echo "		</tr><tr colspan='2'>&nbsp;</tr>";
+					}
+					echo "			<tr colspan='2'>&nbsp;</tr>
+									<tr>
+										<td align='left' colspan='2'>".$row->Datum."</td>
+									</tr>";
+				}
+				echo "			</table>
+						</td>";
+			}
+					
+			/* Prüfen ob wir das maximale Anzahl der Spalten erreicht haben. Wenn ja brech die Zeile um. */
+			if($i>=($spalten*$aktuelleReihe)){
+				echo "</tr>";
+			}
+		}
+
+		echo "</table>";	
+		echo "</div>";
+		// inc/create_pic.php?dir=".$_GET['dir']."&id=".($n*$spalten+$i+$_GET['seite']*$PicsPerPage)."&thumb
+	}
+	/*
+		Berechnungen für das Paging
+	*/
+					
+	if ($pageNum > 1)
+	{
+		$page  = $pageNum - 1;
+		$prev  = " <a href='pics".$_GET['id']."p".$page.".html'>".PREV_SYMBOL."</a> ";		
+		$first = " <a href='pics".$_GET['id']."p1.html'>".FIRST_SYMBOL."</a> ";
+	}
+	else
+	{
+		$prev  = ''; /* Wir sind auf der ersten Seite, wir brauchen keinen vorherigen Link...*/
+		$first = ''; /* ... und wir brauchen keinen ersten Link.*/
+	}
+	
+	if ($pageNum < $maxPage)
+	{
+		$page = $pageNum + 1;
+		$next = " <a href='pics".$_GET['id']."p".$page.".html'>".NEXT_SYMBOL."</a> ";
+		$last = " <a href='pics".$_GET['id']."p".$maxPage.".html'>".LAST_SYMBOL."</a> ";
+	}
+	else
+	{
+		$next = ''; /* Wir sind auf der letzten Seite, wir brauchen keinen nächsten Link...*/
+		$last = ''; /* ... und wir brauchen keinen letzten Link.*/
+	}
+	
+	/* Ausgabe der Paging-Links*/
+	if($numrows > 0 AND $_GET['action'] != 'edit')
+	{
+		$pageing = $first . $prev . " Seite <b>".$pageNum."</b> von <b>".$maxPage."</b> " . $next . $last;
+		echo "<div id='pageing'>".$pageing."<br><a href='index.php'>Zurück zur Übersicht</a></div>";
+	}
+}					
+?>
